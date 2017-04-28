@@ -14,7 +14,7 @@ namespace XamarinTest
         public MainPage()
         {
             InitializeComponent();
-
+            //TEST PUSH
             BindingContext = new MainPageViewModel();
         }
     }
