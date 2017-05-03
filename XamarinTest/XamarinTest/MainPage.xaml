@@ -2,30 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamarinTest"
+             xmlns:viewhelpers="clr-namespace:XamarinTest.ViewHelpers"
              x:Class="XamarinTest.MainPage"
-             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
-             >
-
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid">
+    <ContentPage.Resources>
+        <viewhelpers:SynchronizationStatusToImageConverter x:Key="SynchronizationStatusToImageConverter" />
+    </ContentPage.Resources>
+            
     <StackLayout>
         <Label Text="Welcome to Xamarin Forms!"/>
 
         <dg:DataGrid ItemsSource="{Binding Campaigns}" SelectionEnabled="True" RowHeight="70" HeaderHeight="50" BorderColor="#CCCCCC" HeaderBackground="#E0E6F8">
-            <dg:DataGrid.HeaderFontSize>
+            <!--<dg:DataGrid.HeaderFontSize>
                 <OnIdiom  x:TypeArguments="x:Double">
                     <OnIdiom.Tablet>15</OnIdiom.Tablet>
                     <OnIdiom.Phone>13</OnIdiom.Phone>
                 </OnIdiom>
-            </dg:DataGrid.HeaderFontSize>
+            </dg:DataGrid.HeaderFontSize>-->
             <dg:DataGrid.Columns>
                 <dg:DataGridColumn Title="Nombre" PropertyName="Name" Width="0.5*"/>
                 <dg:DataGridColumn Title="Empresa" PropertyName="Company.Name" Width="0.25*"/>
-                <dg:DataGridColumn Title="Estado" PropertyName="."  Width="0.25*">
+                <!--<dg:DataGridColumn Title="Estado" PropertyName="Forms"  Width="0.25*">
                     <dg:DataGridColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Logo}" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="60" />
+                            <Image Source="{Binding Forms, Converter={StaticResource SynchronizationStatusToImageConverter}}" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" HeightRequest="60" />
                         </DataTemplate>
                     </dg:DataGridColumn.CellTemplate>
-                </dg:DataGridColumn>
+                </dg:DataGridColumn>-->
             </dg:DataGrid.Columns>
         </dg:DataGrid>
     </StackLayout>

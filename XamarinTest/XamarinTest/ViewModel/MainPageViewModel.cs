@@ -26,7 +26,7 @@ namespace XamarinTest.ViewModel
 
         public MainPageViewModel()
         {
-            _campaigns = new Campaign[]
+            Campaigns = new Campaign[]
             {
                 new Campaign { Name = "Campaign 1", Company = new Company { Name = "Cognizant" }, Employees = SynchronizationStatus.Synched, Forms = SynchronizationStatus.NotSynched },
                 new Campaign { Name = "Campaign 2", Company = new Company { Name = "Cognizant" }, Employees = SynchronizationStatus.NotSynched, Forms = SynchronizationStatus.NotSynched },
