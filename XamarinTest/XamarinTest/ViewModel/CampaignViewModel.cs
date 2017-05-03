@@ -22,6 +22,13 @@ namespace XamarinTest.ViewModel
             get
             {
                 if (Forms == SynchronizationStatus.Synched)
+                {
+                    return "";
+                }
+                else
+                {
+                    return "";
+                }
             }           
         }
     }

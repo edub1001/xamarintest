@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using XamarinTest.Database;
 
 namespace XamarinTest
 {
     public partial class App : Application
     {
+        static XamarinTestDatabase database;
         public App()
         {
             InitializeComponent();
@@ -16,6 +13,18 @@ namespace XamarinTest
             Xamarin.Forms.DataGrid.DataGridComponent.Init();
 
             MainPage = new XamarinTest.MainPage();                        
+        }
+
+        public static XamarinTestDatabase Database
+        {
+            get
+            {
+                if(database == null)
+                {
+                    database = new XamarinTestDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("XamarinTestSQLite.db3"));
+                }
+                return database;
+            }
         }
 
         protected override void OnStart()
